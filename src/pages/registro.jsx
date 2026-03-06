@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Registro = () => {
+export const Registro = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
 

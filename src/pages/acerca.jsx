@@ -1,4 +1,4 @@
-const Acerca = () => {
+export const Acerca = () => {
   return (
     <div className="container">
       <h1>Acerca del Proyecto</h1>
@@ -36,4 +36,3 @@ const Acerca = () => {
     </div>
   );
 };
-export default Acerca;
