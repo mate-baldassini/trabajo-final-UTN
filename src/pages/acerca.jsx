@@ -36,5 +36,4 @@ const Acerca = () => {
     </div>
   );
 };
-
 export default Acerca;
