@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { ChatContext } from "../context/ChatContext"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
+
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -13,6 +14,7 @@ const Login = () => {
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value)
+
   }
 
   const handleChangePassword = (e) => {
@@ -34,7 +36,11 @@ const Login = () => {
   }
 
   return (
+<body>
+  
+
     <section>
+
       <h2 className="title-login">Bienvenido, inicia sesión</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -47,12 +53,17 @@ const Login = () => {
           placeholder="Contraseña"
           onChange={handleChangePassword}
         />
+
         <button>Ingresar</button>
-        {
+
+
+<Link to="/registro" className="btn-registro">Registrarse</Link>
+                      {
           error && <p className="error-form">Error al ingresar</p>
         }
-      </form>
+              </form>
     </section>
+    </body>
   )
 }
 

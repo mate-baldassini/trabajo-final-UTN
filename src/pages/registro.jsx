@@ -86,5 +86,3 @@ export const Registro = () => {
     </div>
   );
 };
-
-export default Registro;
