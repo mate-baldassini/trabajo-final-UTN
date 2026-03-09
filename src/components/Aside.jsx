@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react"
 import { ChatContext } from "../context/ChatContext"
 import { users } from "../services/mockApi.js"
 import { Link } from "react-router-dom";
-import{Registro} from "../pages/registro.jsx"
 const Aside = () => {
   const [search, setSearch] = useState("")
 
@@ -28,7 +27,7 @@ const Aside = () => {
       {
         filteredUsers.length === 0 && <p className="not-found-text">No se encontraron contactos</p>
       }
-      <Link to="/registro">Ir a Registro</Link>
+
       <ul>
         {
           filteredUsers.map((user) => (

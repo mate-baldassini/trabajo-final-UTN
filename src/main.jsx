@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { ChatProvider } from './context/ChatContext'
 import { RouterApp } from './router/RouterApp'
 import { AuthProvider } from './context/AuthContext'
-import { Registro } from "./pages/registro"
-import "./styles/main.css"
+import './styles/main.css'
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>

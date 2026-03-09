@@ -36,10 +36,8 @@ const Login = () => {
   }
 
   return (
-<body>
-  
 
-    <section>
+    <div className="section-login">
 
       <h2 className="title-login">Bienvenido, inicia sesión</h2>
       <form onSubmit={handleSubmit}>
@@ -56,14 +54,12 @@ const Login = () => {
 
         <button>Ingresar</button>
 
-
 <Link to="/registro" className="btn-registro">Registrarse</Link>
                       {
           error && <p className="error-form">Error al ingresar</p>
         }
               </form>
-    </section>
-    </body>
+    </div>
   )
 }
 

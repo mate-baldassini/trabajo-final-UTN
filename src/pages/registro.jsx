@@ -1,88 +1,80 @@
-import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react"
+import { ChatContext } from "../context/ChatContext"
+import { useNavigate } from "react-router-dom"
 
-export const Registro = () => {
-  const { register } = useAuth();
-  const navigate = useNavigate();
+const Registro = () => {
 
-  const [form, setForm] = useState({
-    nombre: "",
-    email: "",
-    password: "",
-  });
+  const [nombre, setNombre] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
 
-  const [errors, setErrors] = useState({});
+  const { handleUser } = useContext(ChatContext)
 
-  const validate = () => {
-    const newErrors = {};
+  const navigate = useNavigate()
 
-    if (!form.nombre.trim()) {
-      newErrors.nombre = "El nombre es obligatorio";
-    } else if (form.nombre.length < 3) {
-      newErrors.nombre = "El nombre debe tener mínimo 3 caracteres";
-    }
-
-    if (!form.email) {
-      newErrors.email = "El email es obligatorio";
-    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
-      newErrors.email = "Formato de email inválido";
-    }
-
-    if (!form.password) {
-      newErrors.password = "La contraseña es obligatoria";
-    } else if (form.password.length < 6) {
-      newErrors.password = "La contraseña debe tener mínimo 6 caracteres";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  const validarEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email)
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      register(form);
-      navigate("/");
+    e.preventDefault()
+
+    if (!nombre || nombre.length < 3) {
+      setError("El nombre debe tener al menos 3 caracteres")
+      return
     }
-  };
+
+    if (!email) {
+      setError("El email es obligatorio")
+      return
+    }
+
+    if (!validarEmail(email)) {
+      setError("El email no es válido")
+      return
+    }
+
+    if (!password || password.length < 6) {
+      setError("La contraseña debe tener al menos 6 caracteres")
+      return
+    }
+
+    const user = { nombre, email, password }
+
+    handleUser(user)
+
+    localStorage.setItem("user", JSON.stringify(user))
+
+    navigate("../router/RouterApp.jsx")
+  }
 
   return (
-    <div className="container">
-      <h2>Registro</h2>
+    <section className="section-registro">
+      <h2>Crear cuenta</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre</label>
-          <input
-            type="text"
-            value={form.nombre}
-            onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-          />
-          {errors.nombre && <p className="error">{errors.nombre}</p>}
-        </div>
-
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-          />
-          {errors.email && <p className="error">{errors.email}</p>}
-        </div>
-
-        <div>
-          <label>Contraseña</label>
-          <input
-            type="password"
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-          />
-          {errors.password && <p className="error">{errors.password}</p>}
-        </div>
-
+        <input
+          type="text"
+          placeholder="Nombre"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button type="submit">Registrarse</button>
+        {error && <p className="error-form">{error}</p>}
       </form>
-    </div>
-  );
-};
+    </section>
+  )
+}
+export { Registro }
