@@ -14,7 +14,7 @@ const RouterApp = () => {
         <Route path="/" element={<RouteProtected><Home /></RouteProtected>} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
-        <Route path="/acerca" element={<Acerca />} />
+        <Route path="../pages/Acerca.jsx"ent={<Acerca />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
