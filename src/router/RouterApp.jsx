@@ -12,7 +12,7 @@ const RouterApp = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<RouteProtected><Home /></RouteProtected>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/Acerca" element={<Acerca />} />
         <Route path="*" element={<NotFound />} />
