@@ -201,7 +201,7 @@ li small {
 .chat-input button:hover {
   background: #357bd8;
 }
-/* .chat {
+.chat {
   display: flex;
   flex-direction: column;
 }
@@ -350,20 +350,6 @@ body {
   min-height: 100vh;
 }
 
-.btn-registro{
-text-align: center;
-  display: block;
-  background-color: rgb(123, 123, 123);
-  padding: 8px 16px;
-  text-decoration: none;
-  color: white;
-  border-radius: 4px;
-  margin-top: 10px;
-}
-.btn-registro:hover {
-  background-color: rgb(192, 192, 192);
-  color: white;
-}
 
 
 .title-login {
@@ -403,6 +389,20 @@ button:hover {
   background: #ffffff;
   color:#4da6ff;
 }
+
+
+.section-registro{
+      max-width: 400px;
+    margin: 120px auto;
+    padding: 35px;
+    background: rgba(30, 30, 47, 0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: white;
+}
+
 .btn-registro {
   padding: 12px;
   border: none;
@@ -410,12 +410,14 @@ button:hover {
   background: #ffffff;
   color: #4da6ff;
   font-size: 15px;
+  text-decoration: none;
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .btn-registro:hover {
+  color: #ffffff;
   background-color: #4da6ff;
   text-decoration: underline;
   text-decoration: none;
