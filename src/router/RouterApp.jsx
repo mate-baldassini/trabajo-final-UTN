@@ -3,7 +3,7 @@ import { Home } from "../views/Home"
 import { NotFound } from "../views/NotFound"
 import { Login } from "../views/Login"
 import { Registro } from "../pages/registro"
-import { Acerca } from "../pages/Acerca.jsx"
+import { Acerca } from "../pages/Acerca"
 import { RouteProtected } from "../components/RouteProtected"
 
 const RouterApp = () => {
