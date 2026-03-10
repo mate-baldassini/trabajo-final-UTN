@@ -54,7 +54,7 @@ const Login = () => {
 
         <button>Ingresar</button>
 
-<Link to="/registro" className="btn-registro">Registrarse</Link>
+<Link to="/Registro" className="btn-registro">Registrarse</Link>
                       {
           error && <p className="error-form">Error al ingresar</p>
         }
